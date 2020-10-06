@@ -16,7 +16,7 @@ def import_file_path(path):
     list_files = np.sort(np.array(list_files))  # organizar os arquivos
     im = []  # inicialização do vetor de armazenamento
 
-    for file in tqdm(list_files) :
+    for file in tqdm(list_files):
         fetch_file = os.path.join(path, file)
         image = np.array(imageio.imread(fetch_file))  # importa imagem e converte em numpy
 
@@ -27,4 +27,6 @@ def import_file_path(path):
 
 
 if __name__ == '__main__':
-    print(os.getcwd())
+    path = "C:\\Users\\ravellys\\PycharmProjects\\easyporouspy\\easyporouspy\\io\\file_test"
+    im = import_file_path(path)
+    print(im.shape)
