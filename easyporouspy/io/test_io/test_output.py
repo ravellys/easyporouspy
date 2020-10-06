@@ -17,5 +17,5 @@ def test_save_imjs():
     mim.create_dir(dir=dir)
     path = "C:\\Users\\ravellys\\PycharmProjects\\easyporouspy\\easyporouspy\\io\\file_test"
     name_file = 'im.json'
-    mim.save_imjs(name=name_file, path_file=path)
-    assert os.path.isfile(os.path.join(mim.im_dir, name_file))
+    mim.save_im_js(name=name_file, path_file=path)
+    assert os.path.isfile(os.path.join(mim.mim_dir, name_file))

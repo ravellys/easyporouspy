@@ -1,5 +1,8 @@
 import json
 import os
+
+import numpy as np
+
 from easyporouspy.io.input import import_file_path
 
 
@@ -10,12 +13,13 @@ def _create_dict(im):
 class MetaImage:
     def __init__(self, name):
         self.origin_im_path = None
-        self.im_dir = None
+        self.mim_dir = None
+        self.im_js = None
         self.name = name
 
     def create_dir(self, dir):
         path = os.path.join(dir, self.name)
-        self.im_dir = path
+        self.mim_dir = path
         if os.path.isdir(path):  # vemos de este diretorio ja existe
             print('Ja existe uma pasta com esse nome!')
         else:
@@ -26,11 +30,16 @@ class MetaImage:
         self.origin_im_path = path
         return import_file_path(path)
 
-    def save_imjs(self, name, path_file):
+    def save_im_js(self, name, path_file):
         im = self.import_file_path(path_file)
         im_js = _create_dict(im)
-        with open(os.path.join(self.im_dir, name), 'w') as outfile:
+        self.im_js = os.path.join(self.mim_dir, name)
+        with open(self.im_js, 'w') as outfile:
             json.dump(im_js, outfile)
-        pass
 
+    def open_im_js(self):
+        with open(self.im_js) as json_file:
+            data = json.load(json_file)
+            im = np.array(data['im'].split())
+            return im.reshape(tuple(data['shape']))
 
