@@ -1,3 +1,5 @@
+import os
+
 from easyporouspy.io.input import import_file_path
 from easyporouspy.metaimage.metaimage import MetaImage
 
@@ -15,6 +17,7 @@ def test_import_file_with_metaimage():
     mim.create_dir(dir=dir)
     path = "C:\\Users\\ravellys\\PycharmProjects\\easyporouspy\\easyporouspy\\io\\file_test"
     im = mim.import_file_path(path)
+    assert mim.mim_dir == os.path.join(dir, name)
     assert im.shape == (11, 840, 840)
 
 

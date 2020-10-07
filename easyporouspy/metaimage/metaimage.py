@@ -12,9 +12,6 @@ def _create_dict(im):
 
 class MetaImage:
     def __init__(self, name):
-        self.origin_im_path = None
-        self.mim_dir = None
-        self.im_js = None
         self.name = name
 
     def create_dir(self, dir):
@@ -38,8 +35,7 @@ class MetaImage:
             json.dump(im_js, outfile)
 
     def open_im_js(self):
-        with open(self.im_js) as json_file:
+        with open(self.im_js, 'r') as json_file:
             data = json.load(json_file)
-            im = np.array(data['im'].split())
+            im = np.array(data['im'].split()).astype(int)
             return im.reshape(tuple(data['shape']))
-
