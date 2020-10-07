@@ -3,12 +3,12 @@ from easyporouspy.metaimage.MetaImage import MetaImage
 from easyporouspy.segmentation.SegmentationGeneric import SegmentationGeneric
 
 
-def test_generic_segmentation():
-    dir = r"../../environment_test"
+def test_generic_segmentation(path_env):
+    dir_ = path_env
     name = "seg_test"
     mim = MetaImage(name=name)
-    mim.create_dir(dir=dir)
-    path = r"../../environment_test/file_test"
+    mim.create_dir(dir_=dir_)
+    path = dir_ + "file_test"
     name_file = 'im.json'
     mim.save_im_js(name=name_file, path_file=path)
     seg_generic = SegmentationGeneric(mim)

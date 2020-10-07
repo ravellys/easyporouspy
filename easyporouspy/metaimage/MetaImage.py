@@ -14,8 +14,8 @@ class MetaImage:
     def __init__(self, name='im.json'):
         self.name = name
 
-    def create_dir(self, dir):
-        path = os.path.join(dir, self.name)
+    def create_dir(self, dir_):
+        path = os.path.join(dir_, self.name)
         self.mim_dir = path
         if os.path.isdir(path):  # vemos de este diretorio ja existe
             print('Ja existe uma pasta com esse nome!')
