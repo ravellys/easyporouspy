@@ -1,9 +1,7 @@
 import json
 import os
-
 import numpy as np
-
-from easyporouspy.metaimage.metaimage import _create_dict
+from easyporouspy.metaimage.MetaImage import _create_dict
 
 
 class SegmentationGeneric:

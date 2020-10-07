@@ -27,6 +27,7 @@ def import_file_path(path):
 
 
 if __name__ == '__main__':
-    path = "C:\\Users\\ravellys\\PycharmProjects\\easyporouspy\\easyporouspy\\io\\file_test"
+    path = r"../environment_test/file_test"
     im = import_file_path(path)
     print(im.shape)
+    print(os.getcwd())

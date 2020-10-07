@@ -1,14 +1,14 @@
 import os
-from easyporouspy.metaimage.metaimage import MetaImage
+from easyporouspy.metaimage.MetaImage import MetaImage
 from easyporouspy.segmentation.SegmentationGeneric import SegmentationGeneric
 
 
 def test_generic_segmentation():
-    dir = "C:\\Users\\ravellys\\PycharmProjects\\easyporouspy\\easyporouspy\\metaimage\\test_metaimage\\ambiente_test"
+    dir = r"../../environment_test"
     name = "seg_test"
     mim = MetaImage(name=name)
     mim.create_dir(dir=dir)
-    path = "C:\\Users\\ravellys\\PycharmProjects\\easyporouspy\\easyporouspy\\io\\file_test"
+    path = r"../../environment_test/file_test"
     name_file = 'im.json'
     mim.save_im_js(name=name_file, path_file=path)
     seg_generic = SegmentationGeneric(mim)

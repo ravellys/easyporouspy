@@ -11,7 +11,7 @@ def _create_dict(im):
 
 
 class MetaImage:
-    def __init__(self, name):
+    def __init__(self, name='im.json'):
         self.name = name
 
     def create_dir(self, dir):
